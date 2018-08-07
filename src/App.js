@@ -52,7 +52,7 @@ class App extends Component {
         const { receiveData } = this.props;
         const clientWidth = document.body.clientWidth;
         console.log(clientWidth);
-        receiveData({isMobile: clientWidth <= 992}, 'responsive');
+        receiveData({isMobile: clientWidth <= 900}, 'responsive');
     };
     toggle = () => {
         this.setState({

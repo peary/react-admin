@@ -6,6 +6,7 @@ import React from 'react';
 import BasicForm from './forms/BasicForm';
 import BasicTable from './tables/BasicTables';
 import AdvancedTable from './tables/AdvancedTables';
+import SearchTable from './tables/SearchTable';
 import AsynchronousTable from './tables/AsynchronousTable';
 import Echarts from './charts/Echarts';
 import Recharts from './charts/Recharts';
@@ -28,6 +29,8 @@ import Bundle from './widget/Bundle';
 import Cssmodule from './cssmodule';
 import MapUi from './ui/map';
 
+import AllReport from './report/All'
+
 const WysiwygBundle = (props) => (
     <Bundle load={Wysiwyg}>
         {(Component) => <Component {...props} />}
@@ -35,9 +38,10 @@ const WysiwygBundle = (props) => (
 );
 
 export default {
-    BasicForm, BasicTable, AdvancedTable, AsynchronousTable,
+    BasicForm, BasicTable, AdvancedTable, AsynchronousTable, SearchTable,
     Echarts, Recharts, Icons, Buttons, Spins, Modals, Notifications,
     Tabs, Banners, Drags, Dashboard, Gallery, BasicAnimations,
     ExampleAnimations, AuthBasic, RouterEnter, WysiwygBundle,
-    Cssmodule, MapUi
+    Cssmodule, MapUi,
+    AllReport
 }

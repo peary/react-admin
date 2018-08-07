@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "晨星归一平台",
+  "name": "A Platform Built with React.",
   "icons": [
     {
       "src": "favicon.ico",
