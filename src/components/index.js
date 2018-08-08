@@ -30,6 +30,7 @@ import Cssmodule from './cssmodule';
 import MapUi from './ui/map';
 
 import AllReport from './report/All';
+import AllReportTable from './report/AllReportTable'
 
 
 const WysiwygBundle = (props) => (
@@ -44,5 +45,5 @@ export default {
     Tabs, Banners, Drags, Dashboard, Gallery, BasicAnimations,
     ExampleAnimations, AuthBasic, RouterEnter, WysiwygBundle,
     Cssmodule, MapUi,
-    AllReport
+    AllReport, AllReportTable
 }

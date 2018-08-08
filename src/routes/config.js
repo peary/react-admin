@@ -1,11 +1,19 @@
+import AsynchronousTable from "../components/tables/AsynchronousTable";
+import SearchTable from "../components/tables/SearchTable";
+import AllReportTable from "../components/report/AllReportTable";
+import ReportTable from "../components/report/ReportTable";
+
 export default {
     menus: [    // 菜单相关路由
         {
-            key: '/app/dashboard/index', title: '归一报告', icon: 'home', component: 'Dashboard',
+            key: '/app/dashboard', title: '首页', icon: 'home', component: 'Dashboard'
+        },
+        {
+            key: '/app/report', title: '归一报告', icon: 'database',
             subs: [
                 { key: '/app/report/all', title: '整体概览', component: 'AllReport'},
                 { key: '/app/report/core', title: '重点概览', component: 'Icons'},
-                { key: '/app/report/hospital', title: '医院报告', component: 'Tabs'},
+                { key: '/app/report/hospital', title: '医院报告', component: 'AllReportTable'},
             ]
         },
         {
@@ -13,13 +21,14 @@ export default {
             subs: [
                 { key: '/app/ui/buttons', title: '归一接口', component: 'Buttons'},
                 { key: '/app/ui/icons', title: '归一case', component: 'Icons'},
-                { key: '/app/ui/spins', title: '数据查询', component: 'Spins'},
+                { key: '/app/ui/spins', title: '数据查询', component: 'AsynchronousTable'},
             ],
         },
         {
             key: '/app/animation', title: '标注任务', icon: 'rocket',
             subs: [
                 { key: '/app/table/advancedTable', title: '高级表格', component: 'AdvancedTable'},
+                { key: '/app/table/searchTable', title: '搜索表格', component: 'SearchTable'},
             ]
         },
         {
