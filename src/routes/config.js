@@ -3,9 +3,9 @@ export default {
         {
             key: '/app/dashboard/index', title: '归一报告', icon: 'home', component: 'Dashboard',
             subs: [
-                { key: '/report/all', title: '整体概览', component: 'AllReport'},
-                { key: '/report/core', title: '重点概览', component: 'Icons'},
-                { key: '/report/hospital', title: '医院报告', component: 'Tabs'},
+                { key: '/app/report/all', title: '整体概览', component: 'AllReport'},
+                { key: '/app/report/core', title: '重点概览', component: 'Icons'},
+                { key: '/app/report/hospital', title: '医院报告', component: 'Tabs'},
             ]
         },
         {

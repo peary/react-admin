@@ -29,7 +29,8 @@ import Bundle from './widget/Bundle';
 import Cssmodule from './cssmodule';
 import MapUi from './ui/map';
 
-import AllReport from './report/All'
+import AllReport from './report/All';
+
 
 const WysiwygBundle = (props) => (
     <Bundle load={Wysiwyg}>
