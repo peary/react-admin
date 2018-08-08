@@ -2,9 +2,8 @@
  * Created by hao.cheng on 2017/4/25.
  */
 import React, { Component } from 'react';
-import { Row, Card, Tabs, Radio } from 'antd';
+import { Tabs } from 'antd';
 import BreadcrumbCustom from '../BreadcrumbCustom';
-import AsynchronousTable from '../tables/AsynchronousTable'
 import FixedTable from '../tables/FixedTable'
 const TabPane = Tabs.TabPane;
 

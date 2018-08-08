@@ -2,12 +2,11 @@
  * Created by hao.cheng on 2017/4/16.
  */
 import React from 'react';
-import { Table } from 'antd';
+import { Table, Card, Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button } from 'antd';
 import { axiosRequest, axiosStar } from '../../axios';
-import HospitalSelect from '../HospitalSelect';
 import BreadcrumbCustom from '../BreadcrumbCustom';
 
-class AllReportTable extends React.Component {
+class PPTable extends React.Component {
     state = {
         loading: false,
         data: [],
@@ -40,20 +39,23 @@ class AllReportTable extends React.Component {
     componentDidMount() {
         this.start();
     }
-    start = () => {
+    start() {
         this.setState({ loading: true });
         axiosStar(this.state.uri, this.state.method, this.state.payload).then(res => {
             this.setState({
-                data: res.data.body,
+                data: res.data,
                 loading: false
             });
         });
     };
+    handleSubmit() {
+
+    };
     render() {
         return (
             <div className="gutter-example">
-                <BreadcrumbCustom first="归一报告" second="整体概览" />
-                <HospitalSelect />
+                <BreadcrumbCustom first="公共服务" second="PP" />
+
                 <Table
                     columns={this.state.columns}
                     dataSource={this.state.data}
@@ -70,4 +72,4 @@ class AllReportTable extends React.Component {
     }
 }
 
-export default AllReportTable;
+export default PPTable;

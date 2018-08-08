@@ -1,7 +1,3 @@
-import AsynchronousTable from "../components/tables/AsynchronousTable";
-import SearchTable from "../components/tables/SearchTable";
-import AllReportTable from "../components/report/AllReportTable";
-import ReportTable from "../components/report/ReportTable";
 
 export default {
     menus: [    // 菜单相关路由
@@ -29,6 +25,7 @@ export default {
             subs: [
                 { key: '/app/table/advancedTable', title: '高级表格', component: 'AdvancedTable'},
                 { key: '/app/table/searchTable', title: '搜索表格', component: 'SearchTable'},
+                { key: '/app/table/SortTable', title: '排序表格', component: 'SortTable'},
             ]
         },
         {
