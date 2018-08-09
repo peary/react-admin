@@ -27,7 +27,7 @@ class AllReport extends Component {
     render() {
         const { mode } = this.state;
         return (
-            <div className="gutter-example button-demo">
+            <div className="gutter-example">
                 <BreadcrumbCustom first="归一报告" second="整体概览" />
 
                 <Tabs

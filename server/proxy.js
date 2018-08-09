@@ -1,10 +1,25 @@
 const axios = require('axios')
 
-const headers = {
-    'Cookie': 'nginx_proxy_session=i3YwlVF-50vnnX48V0JMzA..|1533845083|iXP7rLvLexIRrUxDJ_GNAZniv2o.'
-}
-
 const hostname = 'http://star.dev.yiducloud.cn'
+
+// const headers = axios.request({
+//     url: 'http://proxy-auth.yiducloud.cn/sso/cookies'
+// }).then(function (response) {
+//     let cookie = response.data;
+//     console.log(cookie.nginx_proxy_session);
+//     return {
+//         'Cookie': 'nginx_proxy_session=' + cookie.nginx_proxy_session
+//     }
+// }).catch(function (error) {
+//     console.log(error);
+//     return {}
+// });
+//
+// console.log(headers);
+
+const headers = {
+    'Cookie': 'nginx_proxy_session=qk020rfRuSMNHBTlYJrTsQ..|1533870560|jnye9oWedpgyJlWoVR0oAwdPYhU.'
+}
 
 class DevProxy {
     static async pp_list(ctx, next){

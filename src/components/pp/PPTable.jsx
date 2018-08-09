@@ -5,7 +5,7 @@ import React from 'react';
 import { Table, Card, Form, Input, Tooltip, Icon, Cascader, Select, Radio, Checkbox, Button } from 'antd';
 import { axiosRequest, axiosStar } from '../../axios/index';
 import BreadcrumbCustom from '../BreadcrumbCustom';
-import HospitalSelect from '../HospitalSelect'
+import HospitalSelect from '../select/HospitalSelect'
 
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
@@ -57,44 +57,102 @@ class PPTable extends React.Component {
     handleSubmit() {
 
     };
+    handleChange(value) {
+
+    };
     render() {
+        const formItemLayout = {
+            labelCol: {
+                xs: { span: 24 },
+                sm: { span: 8 },
+            },
+            wrapperCol: {
+                xs: { span: 24 },
+                sm: { span: 14 },
+            },
+        };
 
         return (
             <div className="gutter-example">
                 <BreadcrumbCustom first="公共服务" second="PP" />
                 <Card>
-                <Form className="ant-form-inline" onSubmit={this.handleSubmit}>
-                    <div className="ant-form-item">
-                        <label htmlFor="hospitalSelect">医院名称：</label>
-                        <HospitalSelect />
-                    </div>
-                    <div className="ant-form-item">
-                        <label htmlFor="userName">账户：</label>
-                        <input className="ant-input" type="text" id="userName" placeholder="请输入账户名" />
-                    </div>
-                    <div className="ant-form-item">
-                        <label htmlFor="password2">密码：</label>
-                        <input className="ant-input" type="password" id="password2" placeholder="请输入密码" />
-                    </div>
-                    <div className="ant-form-item">
-                        <label className="ant-checkbox-inline">
-                            <Checkbox /> 记住我
-                        </label>
-                    </div>
-                    <input type="submit" className="ant-btn ant-btn-primary" value="登 录" />
-                </Form>
+                    <Form onSubmit={this.handleSubmit}>
+                        <FormItem>
+                            <label className="ant-col-1" htmlFor="hospitalSelect">医院名称：</label>
+                            <div className="ant-col-8">
+                                <HospitalSelect />
+                            </div>
+                            <div className="ant-col-2">
+                                <Select defaultValue="" style={{width: 200}}>
+                                    <Option value="">PP标签</Option>
+                                    <Option value="基础">基础</Option>
+                                    <Option value="医药">医药</Option>
+                                    <Option value="专病">专病</Option>
+                                    <Option value="nova">nova</Option>
+                                    <Option value="院管">院管</Option>
+                                </Select>
+                            </div>
+                        </FormItem>
+
+                        <FormItem>
+                            <label className="ant-col-1" htmlFor="certNo1">PP筛选：</label>
+                            <div className='ant-col-12'>
+                                <div className="ant-col-4">
+                                    <Input placeholder="PP版本..." />
+                                </div>
+                                <div className="ant-col-2">
+                                    <Select defaultValue="" style={{width: 150}}>
+                                        <Option value="">是否发布...</Option>
+                                        <Option value="1">是</Option>
+                                        <Option value="0">否</Option>
+                                    </Select>
+                                </div>
+                                <div className="ant-col-2">
+                                    <Select defaultValue="" style={{width: 150}}>
+                                        <Option value="">是否现场...</Option>
+                                        <Option value="1">是</Option>
+                                        <Option value="0">否</Option>
+                                    </Select>
+                                </div>
+                                <div className="ant-col-2">
+                                    <Select defaultValue="1" style={{width: 150}}>
+                                        <Option value="1">我的创建</Option>
+                                        <Option value="0">所有人</Option>
+                                    </Select>
+                                </div>
+                                <div className="ant-col-2">
+                                    <Select defaultValue="0">
+                                        <Option value="0">最新版本</Option>
+                                        <Option value="1">所有版本</Option>
+                                    </Select>
+                                </div>
+                            </div>
+                        </FormItem>
+                        <FormItem>
+                            <label htmlFor="schema_list">schema列表</label>
+                            <div className="ant-col-12">
+                                <textarea rows="8" placeholder="各场地schema，一行一个" wrap="hard"></textarea>
+                            </div>
+                        </FormItem>
+                        <FormItem>
+                            <input type="submit" className="ant-btn ant-btn-primary" value="登 录" />
+                        </FormItem>
+                    </Form>
                 </Card>
-                <Table
-                    columns={this.state.columns}
-                    dataSource={this.state.data}
-                    scroll={{ x: 1800 }}
-                    bordered={true}
-                    pagination={{
-                        pageSize: 10,
-                        showSizeChanger: true,
-                        pageSizeOptions: ['10', '30', '100']
-                    }}
-                />
+
+                <Card>
+                    <Table
+                        columns={this.state.columns}
+                        dataSource={this.state.data}
+                        scroll={{ x: 1800 }}
+                        bordered={true}
+                        pagination={{
+                            pageSize: 10,
+                            showSizeChanger: true,
+                            pageSizeOptions: ['10', '30', '100']
+                        }}
+                    />
+                </Card>
             </div>
         );
     }

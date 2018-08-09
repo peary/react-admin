@@ -1,12 +1,13 @@
 
 import React from 'react';
 import { Table, Card, Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button } from 'antd';
-import { axiosRequest, axiosStar } from '../axios';
+import { axiosRequest, axiosStar } from '../../axios/index';
 
 const Option = Select.Option;
 
 class HospitalSelect extends React.Component {
     state = {
+        value: null,
         children: [],
         uri: '/api/hospital/list',
         method: 'GET',
@@ -15,7 +16,8 @@ class HospitalSelect extends React.Component {
     };
     handleChange(value) {
         console.log('selected ' + value);
-    }
+        // this.state.value = value;
+    };
     componentDidMount() {
         this.start();
     }
@@ -36,7 +38,8 @@ class HospitalSelect extends React.Component {
         return (
             <Select
                 mode={'multiple'}
-                style={{width: 600}}
+                placeholder={'请选择医院...'}
+                style={{width: this.state.width}}
                 defaultValue={[]}
                 onChange={this.handleChange}>
                 {this.state.children}

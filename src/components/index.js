@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import BasicForm from './forms/BasicForm';
+import HorizontalForm from './forms/HorizontalForm';
 import BasicTable from './tables/BasicTables';
 import AdvancedTable from './tables/AdvancedTables';
 import SearchTable from './tables/SearchTable';
@@ -42,7 +43,7 @@ const WysiwygBundle = (props) => (
 );
 
 export default {
-    BasicForm, BasicTable, AdvancedTable, AsynchronousTable, SearchTable,
+    BasicForm, HorizontalForm, BasicTable, AdvancedTable, AsynchronousTable, SearchTable,
     Echarts, Recharts, Icons, Buttons, Spins, Modals, Notifications,
     Tabs, Banners, Drags, Dashboard, Gallery, BasicAnimations,
     ExampleAnimations, AuthBasic, RouterEnter, WysiwygBundle,

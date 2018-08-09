@@ -2,9 +2,9 @@
  * Created by hao.cheng on 2017/4/16.
  */
 import React from 'react';
-import { Table } from 'antd';
+import { Table, Card } from 'antd';
 import { axiosRequest, axiosStar } from '../../axios';
-import HospitalSelect from '../HospitalSelect';
+import HospitalSelect from '../select/HospitalSelect';
 import BreadcrumbCustom from '../BreadcrumbCustom';
 
 class AllReportTable extends React.Component {
@@ -53,9 +53,14 @@ class AllReportTable extends React.Component {
         return (
             <div className="gutter-example">
                 <BreadcrumbCustom first="归一报告" second="整体概览" />
-                <div>
-                    <HospitalSelect />
-                </div>
+                <Card>
+                    <div>
+                        <HospitalSelect
+                            width={600}
+                        />
+                    </div>
+                </Card>
+
                 <Table
                     columns={this.state.columns}
                     dataSource={this.state.data}

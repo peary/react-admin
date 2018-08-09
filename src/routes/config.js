@@ -26,6 +26,7 @@ export default {
                 { key: '/app/table/advancedTable', title: '高级表格', component: 'AdvancedTable'},
                 { key: '/app/table/searchTable', title: '搜索表格', component: 'SearchTable'},
                 { key: '/app/table/SortTable', title: '排序表格', component: 'SortTable'},
+                { key: '/app/table/basicForm', title: '表单', component: 'BasicForm'},
             ]
         },
         {
