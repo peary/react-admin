@@ -32,6 +32,8 @@ import MapUi from './ui/map';
 import AllReport from './report/All';
 import AllReportTable from './report/AllReportTable'
 
+import PPTable from './pp/PPTable'
+
 
 const WysiwygBundle = (props) => (
     <Bundle load={Wysiwyg}>
@@ -45,5 +47,6 @@ export default {
     Tabs, Banners, Drags, Dashboard, Gallery, BasicAnimations,
     ExampleAnimations, AuthBasic, RouterEnter, WysiwygBundle,
     Cssmodule, MapUi,
-    AllReport, AllReportTable
+    AllReport, AllReportTable,
+    PPTable
 }

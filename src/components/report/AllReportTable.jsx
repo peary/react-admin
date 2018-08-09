@@ -53,7 +53,9 @@ class AllReportTable extends React.Component {
         return (
             <div className="gutter-example">
                 <BreadcrumbCustom first="归一报告" second="整体概览" />
-                <HospitalSelect />
+                <div>
+                    <HospitalSelect />
+                </div>
                 <Table
                     columns={this.state.columns}
                     dataSource={this.state.data}

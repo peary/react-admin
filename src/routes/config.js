@@ -29,9 +29,9 @@ export default {
             ]
         },
         {
-            key: '/app/table', title: '公共服务', icon: 'copy',
+            key: '/app/public', title: '公共服务', icon: 'copy',
             subs: [
-                { key: '/app/table/basicTable', title: 'PP', component: 'BasicTable'},
+                { key: '/app/public/pp', title: 'PP', component: 'PPTable'},
                 { key: '/app/table/advancedTable', title: '文件共享', component: 'AdvancedTable'},
                 { key: '/app/table/searchTable', title: '异步表格', component: 'SearchTable'},
             ],

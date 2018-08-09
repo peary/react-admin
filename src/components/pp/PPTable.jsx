@@ -2,9 +2,15 @@
  * Created by hao.cheng on 2017/4/16.
  */
 import React from 'react';
-import { Table, Card, Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button } from 'antd';
-import { axiosRequest, axiosStar } from '../../axios';
+import { Table, Card, Form, Input, Tooltip, Icon, Cascader, Select, Radio, Checkbox, Button } from 'antd';
+import { axiosRequest, axiosStar } from '../../axios/index';
 import BreadcrumbCustom from '../BreadcrumbCustom';
+import HospitalSelect from '../HospitalSelect'
+
+const Option = Select.Option;
+const RadioGroup = Radio.Group;
+const FormItem = Form.Item;
+
 
 class PPTable extends React.Component {
     state = {
@@ -43,7 +49,7 @@ class PPTable extends React.Component {
         this.setState({ loading: true });
         axiosStar(this.state.uri, this.state.method, this.state.payload).then(res => {
             this.setState({
-                data: res.data,
+                data: res.data.body,
                 loading: false
             });
         });
@@ -52,10 +58,32 @@ class PPTable extends React.Component {
 
     };
     render() {
+
         return (
             <div className="gutter-example">
                 <BreadcrumbCustom first="公共服务" second="PP" />
-
+                <Card>
+                <Form className="ant-form-inline" onSubmit={this.handleSubmit}>
+                    <div className="ant-form-item">
+                        <label htmlFor="hospitalSelect">医院名称：</label>
+                        <HospitalSelect />
+                    </div>
+                    <div className="ant-form-item">
+                        <label htmlFor="userName">账户：</label>
+                        <input className="ant-input" type="text" id="userName" placeholder="请输入账户名" />
+                    </div>
+                    <div className="ant-form-item">
+                        <label htmlFor="password2">密码：</label>
+                        <input className="ant-input" type="password" id="password2" placeholder="请输入密码" />
+                    </div>
+                    <div className="ant-form-item">
+                        <label className="ant-checkbox-inline">
+                            <Checkbox /> 记住我
+                        </label>
+                    </div>
+                    <input type="submit" className="ant-btn ant-btn-primary" value="登 录" />
+                </Form>
+                </Card>
                 <Table
                     columns={this.state.columns}
                     dataSource={this.state.data}
@@ -66,7 +94,7 @@ class PPTable extends React.Component {
                         showSizeChanger: true,
                         pageSizeOptions: ['10', '30', '100']
                     }}
-            />
+                />
             </div>
         );
     }
