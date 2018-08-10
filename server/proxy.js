@@ -2,27 +2,24 @@ const axios = require('axios')
 
 const hostname = 'http://star.dev.yiducloud.cn'
 
-// const headers = axios.request({
-//     url: 'http://proxy-auth.yiducloud.cn/sso/cookies'
-// }).then(function (response) {
-//     let cookie = response.data;
-//     console.log(cookie.nginx_proxy_session);
-//     return {
-//         'Cookie': 'nginx_proxy_session=' + cookie.nginx_proxy_session
-//     }
-// }).catch(function (error) {
-//     console.log(error);
-//     return {}
-// });
-//
-// console.log(headers);
-
-const headers = {
-    'Cookie': 'nginx_proxy_session=qk020rfRuSMNHBTlYJrTsQ..|1533870560|jnye9oWedpgyJlWoVR0oAwdPYhU.'
-}
-
 class DevProxy {
-    static async pp_list(ctx, next){
+    get_cookie() {
+        return axios.request({
+            url: 'http://proxy-auth.yiducloud.cn/sso/cookies'
+        }).then(function (response) {
+            let cookie = response.data;
+            return {
+                'Cookie': 'nginx_proxy_session=' + cookie.nginx_proxy_session
+            }
+        }).catch(function (error) {
+            console.log(error);
+            return {}
+        })
+    };
+
+    async pp_list(ctx, next){
+        console.log(this.get_cookie());
+        let headers = this.get_cookie();
         const {data} = await axios.request({
             url: hostname + '/api/pp/list',
             method: 'GET',
@@ -31,7 +28,8 @@ class DevProxy {
         ctx.body=data
     };
 
-    static async hospital_list(ctx, next){
+    async hospital_list(ctx, next){
+        let headers = this.get_cookie();
         const {data} = await axios.request({
             url: hostname + '/api/hospital/list',
             method: 'GET',
