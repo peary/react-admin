@@ -41,9 +41,9 @@ class SiderCustom extends Component {
     state = {
         collapsed: false,
         mode: 'inline',
-        openKey: '',
+        openKey: '/app/dashboard',
         selectedKey: '',
-        firstHide: true,        // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
+        firstHide: false,        // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
     };
     componentDidMount() {
         // this.setMenuOpen(this.props);
@@ -86,6 +86,7 @@ class SiderCustom extends Component {
                     mode="inline"
                     selectedKeys={[this.state.selectedKey]}
                     openKeys={this.state.firstHide ? null : [this.state.openKey]}
+                    // openKeys={['/app/dashboard', '/app/report', '/app/ui', '/app/task', '/app/public']}
                     onOpenChange={this.openMenu}
                 />
                 <style>

@@ -13,7 +13,7 @@ export default {
             ]
         },
         {
-            key: '/app/ui', title: '实时查询', icon: 'cloud',
+            key: '/app/query', title: '实时查询', icon: 'cloud',
             subs: [
                 { key: '/app/ui/buttons', title: '归一接口', component: 'Buttons'},
                 { key: '/app/ui/icons', title: '归一case', component: 'Icons'},
@@ -21,7 +21,7 @@ export default {
             ],
         },
         {
-            key: '/app/animation', title: '标注任务', icon: 'rocket',
+            key: '/app/task', title: '标注任务', icon: 'rocket',
             subs: [
                 { key: '/app/table/advancedTable', title: '高级表格', component: 'AdvancedTable'},
                 { key: '/app/table/searchTable', title: '搜索表格', component: 'SearchTable'},
